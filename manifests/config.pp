@@ -5,7 +5,7 @@ define python::config(
   $home = "/home/${owner}",
   $index_url = 'https://pypi.python.org/simple') {
 
-  file { 'easy install config':
+  file { "$home easy install config":
     ensure  => present,
     path    => "${home}/.pydistutils.cfg",
     content => template('python/pydistutils.cfg.erb'),
@@ -25,7 +25,7 @@ define python::config(
     group  => $group
   } ->
 
-  file { 'pip config':
+  file { "${home} pip conf":
     ensure  => present,
     path    => "${home}/.pip/pip.conf",
     content => template('python/pip.conf.erb'),
