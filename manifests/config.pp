@@ -15,19 +15,19 @@ define python::config(
     ensure  => present,
     path    => "${homedir}/.pydistutils.cfg",
     content => template('python/pydistutils.cfg.erb'),
-    owner   => $username,
+    owner   => $owner,
     group   => $group
   }
 
   file { "${homedir}/.pip":
     ensure => directory,
-    owner  => $username,
+    owner  => $owner,
     group  => $group
   } ->
 
   file { "${homedir}/.pip/cache":
     ensure => directory,
-    owner  => $username,
+    owner  => $owner,
     group  => $group
   } ->
 
@@ -35,7 +35,7 @@ define python::config(
     ensure  => present,
     path    => "${homedir}/.pip/pip.conf",
     content => template('python/pip.conf.erb'),
-    owner   => $username,
+    owner   => $owner,
     group   => $group
   }
 }
