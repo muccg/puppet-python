@@ -1,5 +1,5 @@
 name         'muccg-python'
-version      '1.0.0'
+version      '1.1.0'
 
 author       'Centre for Comparative Genomics'
 license      'GNU GPL Version 3'

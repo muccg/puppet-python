@@ -1,15 +1,9 @@
 #
-class python::indexurl(
-  $index_url = 'https://pypi.python.org/simple',
-  $username = $::ssh_user,
-  $group = $::ssh_user) {
-
-  if $username == 'root' {
-    $home = '/root'
-  }
-  else {
-    $home = "/home/${username}"
-  }
+define python::config(
+  $owner = $name,
+  $group = $owner,
+  $home = "/home/${owner}",
+  $index_url = 'https://pypi.python.org/simple') {
 
   file { 'easy install config':
     ensure  => present,

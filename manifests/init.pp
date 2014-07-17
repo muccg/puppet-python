@@ -1,14 +1,24 @@
 #
 class python {
+  if $::osfamily == 'redhat' {
+    include repo::ius
+  }
 
   include python::params
-  include python::indexurl
+  
+  if ($::ssh_user and $::ssh_user != 'root') {
+    python::config { $::ssh_user: }
+  }
+
+  python::config { 'root': 
+    home => '/root'
+  }
 
   package { $python::params::packages:
-      ensure => installed,
+    ensure => installed,
   }
 
   package { $python::params::development_packages:
-      ensure => installed,
+    ensure => installed,
   }
 }
