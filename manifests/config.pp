@@ -2,8 +2,12 @@
 define python::config(
   $owner = $name,
   $group = $owner,
-  $home = "/home/${owner}",
+  $home = undef,
   $index_url = 'https://pypi.python.org/simple') {
+
+  if ($home == undef) {
+    $home = "/home/${owner}"
+  }
 
   file { "$home easy install config":
     ensure  => present,
