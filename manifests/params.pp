@@ -4,7 +4,7 @@ class python::params {
   case $::operatingsystem {
 
     'CentOS': {
-      $packages = ['python27', 'python27-virtualenv', 'python33']
+      $packages = ['python27', 'python27-virtualenv', 'python27-pip', 'python33']
       $development_packages = ['python27-devel', 'python33-devel']
     }
 
