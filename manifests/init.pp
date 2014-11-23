@@ -1,7 +1,7 @@
 #
 class python {
   if $::osfamily == 'redhat' {
-    include repo::ius
+    include repo::repo::ius
   }
 
   include python::params
